@@ -1,0 +1,25 @@
+--no-fonts
+-classpath
+'C:/Users/Stephen/.m2/repository/edu/uky/cs/nil/tt-server/0.9.0/tt-server-0.9.0.jar;C:/Users/Stephen/.m2/repository/edu/uky/cs/nil/story-graph-tools/1.0.1/story-graph-tools-1.0.1.jar;C:/Users/Stephen/.m2/repository/edu/uky/cs/nil/story-graph/1.1.0/story-graph-1.1.0.jar'
+-encoding
+'UTF-8'
+-protected
+--release
+21
+-sourcepath
+'C:/Users/Stephen/Documents/Eclipse Workspaces/Tandem Tales Logical Story World Expander/sg-tt-expand/src/main/java;C:/Users/Stephen/Documents/Eclipse Workspaces/Tandem Tales Logical Story World Expander/sg-tt-expand/target/generated-sources/annotations'
+-author
+-bottom
+'Copyright &#169; 2026. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'C:/Users/Stephen/Documents/Eclipse Workspaces/Tandem Tales Logical Story World Expander/sg-tt-expand/target/reports/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'Tandem Tales Logical Story World State Graph Expander 1.0.0 API'
+-use
+-version
+-windowtitle
+'Tandem Tales Logical Story World State Graph Expander 1.0.0 API'
