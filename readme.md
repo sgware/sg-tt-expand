@@ -6,10 +6,11 @@ expands all possible states of a
 [Logical Story World](https://sgware.github.io/tt-server/edu/uky/cs/nil/tt/world/LogicalWorld.html)
 and writes them to a [Story Graph](https://github.com/sgware/story-graph) file.
 
-States are expanded using complete breadth-first search approach, which can be
-limited to a certain depth. Only states from which it is possible to reach a
-terminal state will be included in the story graph, meaning it will always be
-possible to reach one of the story's endings.
+States are expanded by complete breadth-first search, which can be limited to a
+certain depth. Depth 4 means the graph will generate all states which can be
+reached by taking 4 or fewer actions from the initial state. Only states from
+which it is possible to reach a terminal state will be included in the story
+graph, meaning it will always be possible to reach one of the story's endings.
 
 ## Download and Documentation
 
@@ -55,7 +56,9 @@ You can add this tool to a Maven project's `pom.xml` file like this:
 
 ## Example Usage
 
-For this example, you will need a
+For this example, you will need [Git](https://git-scm.com/) and
+[Java](https://www.oracle.com/java/technologies/downloads/) installed and on
+your path. You will also need a
 [Tandem Tales logical story world](https://github.com/sgware/tt-server/tree/main/worlds).
 This examples assumes you will download `tutorial.json` into the `build/jar`
 folder of this project. You may want want to download the

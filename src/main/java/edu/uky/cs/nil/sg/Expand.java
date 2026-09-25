@@ -178,17 +178,19 @@ public class Expand implements Task {
 		while(queue.size() > 0) {
 			WorldNode parent = queue.poll();
 			State state = parent.getState();
-			for(Action action : world.getActions()) {
-				if(world.getPrecondition(action).test(state)) {
-					WorldNode child = new WorldNode.Delta(parent, world.getEffects(action));
-					child = safe.get(child);
-					if(child != null) {
-						if(child.node == null) {
-							child.node = translate(child.getState());
-							queue.offer(child);
+			if(!terminal(state)) {
+				for(Action action : world.getActions()) {
+					if(world.getPrecondition(action).test(state)) {
+						WorldNode child = new WorldNode.Delta(parent, world.getEffects(action));
+						child = safe.get(child);
+						if(child != null) {
+							if(child.node == null) {
+								child.node = translate(child.getState());
+								queue.offer(child);
+							}
+							edu.uky.cs.nil.sg.Action label = graph.actions.get(action.toString());
+							graph.edges.temporal.add(parent.node, label, child.node);
 						}
-						edu.uky.cs.nil.sg.Action label = graph.actions.get(action.toString());
-						graph.edges.temporal.add(parent.node, label, child.node);
 					}
 				}
 			}
