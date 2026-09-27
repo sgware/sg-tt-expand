@@ -128,6 +128,8 @@ public class Expand implements Task {
 			iterator.remove();
 			status.increment();
 		}
+		unsafe = null;
+		System.gc();
 		int before = 0;
 		while(safe.size() > before) {		
 			before = safe.size();
@@ -142,6 +144,7 @@ public class Expand implements Task {
 			}
 		}
 		pairs = null;
+		System.gc();;
 		// Check if graph is empty.
 		if(safe.size() == 0) {
 			status.setMessage("No safe states found");
