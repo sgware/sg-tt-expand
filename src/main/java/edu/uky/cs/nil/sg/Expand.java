@@ -156,18 +156,22 @@ public class Expand implements Task {
 		for(edu.uky.cs.nil.tt.world.Action action : world.getActions()) {
 			for(edu.uky.cs.nil.tt.world.Entity entity : action.getConsenting()) {
 				edu.uky.cs.nil.sg.Character character = graph.characters.add(entity.name);
+				character.setComment(world.getDescription(entity, Role.GAME_MASTER));
 				if(entity == world.getPlayer())
 					graph.characters.setPlayer(character, true);
 			}
 		}
-		for(edu.uky.cs.nil.tt.world.Variable variable : world.getVariables())
-			graph.fluents.add(variable.name);
-		graph.values.add(Objects.toString(true));
-		graph.values.add(Objects.toString(false));
+		for(edu.uky.cs.nil.tt.world.Variable variable : world.getVariables()) {
+			Fluent fluent = graph.fluents.add(variable.name);
+			fluent.setComment(world.getDescription(variable, Role.GAME_MASTER));
+		}
+		graph.values.add(Objects.toString(true)).setComment("true");
+		graph.values.add(Objects.toString(false)).setComment("false");
 		for(edu.uky.cs.nil.tt.world.Entity value : world.getEntities())
-			graph.values.add(value.name);
+			graph.values.add(value.name).setComment(world.getDescription(value, Role.GAME_MASTER));
 		for(edu.uky.cs.nil.tt.world.Action action : world.getActions()) {
 			edu.uky.cs.nil.sg.Action act = graph.actions.add(action.name);
+			act.setComment(world.getDescriber().getSentence(action, Role.GAME_MASTER));
 			for(edu.uky.cs.nil.tt.world.Entity character : action.getConsenting()) {
 				edu.uky.cs.nil.sg.Character consenting = graph.characters.get(character.name);
 				graph.actions.add(act, consenting);

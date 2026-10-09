@@ -106,7 +106,7 @@ public class ExpandTool extends StoryGraphTool {
 			expand.run(status);
 			String message = status.getMessage();
 			if(expand.graph.nodes.size() > 0)
-				expand.graph.write(output);
+				expand.graph.write(output, status);
 			status.setMessage(message);
 		});
 		if(expand.graph.nodes.size() > 0)
